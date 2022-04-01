@@ -1,7 +1,4 @@
-ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-        if(list1==NULL && list2==NULL){
-            return NULL;
-        }
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
         if(list1==NULL){
             return list2;
         }
@@ -38,11 +35,12 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
                 p=c2;
                 c2=c2->next;
             }
-            if(c1==NULL){
-                p->next=c2;
-            }else if(c2==NULL){
-                p->next=c1;
-            }
+            
+        }
+        if(c1==NULL){
+            p->next=c2;
+        }else if(c2==NULL){
+            p->next=c1;
         }
         return head;
     }
