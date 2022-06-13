@@ -2,9 +2,7 @@ vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
         stack<int> s;
         vector<int> ans;
         unordered_map<int,int> m;
-        m[nums2[nums2.size()-1]]=-1;
-        s.push(nums2[nums2.size()-1]);
-        for(int i=nums2.size()-2;i>=0;i--){
+        for(int i=nums2.size()-1;i>=0;i--){
             if(s.empty()){
                 m[nums2[i]]=-1;
             }else if(!s.empty() && s.top()>nums2[i]){
