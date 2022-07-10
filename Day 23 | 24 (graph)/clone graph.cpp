@@ -2,9 +2,9 @@ Node* dfs(Node* cur,unordered_map<Node*,Node*>& mp){
         vector<Node*> neighbour;
         Node* clone=new Node(cur->val);
         mp[cur]=clone;
-        for{
+        for(auto it:cur->neighbors){
             if(mp.find(it)!=mp.end()){
-                neighbour.push_back(mp[it]);
+                neighbour.push_back(mp[it]);   
             }else{
                 neighbour.push_back(dfs(it,mp));
             }
