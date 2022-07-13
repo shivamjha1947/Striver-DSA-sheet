@@ -1,0 +1,17 @@
+int solve(vector<vector<int>>& triangle,int i,int j,vector<vector<int>>& t){
+        int n=triangle.size();
+        if(t[i][j]!=-1){
+            return t[i][j];
+        }
+        if(i==n-1){
+            return triangle[i][j]; 
+        }
+        int down=triangle[i][j]+solve(triangle,i+1,j,t);
+        int diag=triangle[i][j]+solve(triangle,i+1,j+1,t);
+        return t[i][j]=min(down,diag);
+    }
+    int minimumTotal(vector<vector<int>>& triangle) {
+        int n=triangle.size();
+        vector<vector<int>> t(n,vector<int>(n,-1));
+        return solve(triangle,0,0,t);
+    }
