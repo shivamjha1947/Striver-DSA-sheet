@@ -66,3 +66,15 @@ int findWays(vector<int> &num, int tar){
     }
     return dp[n-1][tar];
 }
+
+int targetSum(int n, int target, vector<int>& arr){
+        int totSum = 0;
+        for(int i=0; i<n;i++){
+            totSum += arr[i];
+        }
+
+        //Checking for edge cases
+        if(totSum-target <0 || (totSum-target)%2 ) return 0;
+
+        return findWays(arr,(totSum-target)/2);
+    }
